@@ -20,6 +20,11 @@ export default function Home() {
 
     tl.current = gsap
       .timeline()
+      .from(".wrapper", {
+        backgroundColor: "#030712",
+        duration: 0.5,
+        delay: 0.5
+      })
       .from(titleText.chars, {
         y: 70,
         opacity: 0,
