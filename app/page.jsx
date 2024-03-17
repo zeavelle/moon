@@ -22,7 +22,8 @@ export default function Home() {
       .timeline()
       .from(".wrapper", {
         backgroundColor: "#030712",
-        duration: 0.8,
+        duration: 1,
+        delay: 1,
       })
       .from(titleText.chars, {
         y: 70,
@@ -33,7 +34,7 @@ export default function Home() {
         stagger: {
           amount: 0.7,
         },
-      })
+      }, "-=1")
       .from(
         descText.chars,
         {
