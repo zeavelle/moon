@@ -22,8 +22,7 @@ export default function Home() {
       .timeline()
       .from(".wrapper", {
         backgroundColor: "#030712",
-        duration: 0.5,
-        delay: 0.5
+        duration: 0.8,
       })
       .from(titleText.chars, {
         y: 70,
