@@ -27,7 +27,7 @@ export default function Home() {
       })
       .from(titleText.chars, {
         y: 70,
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1,
         delay: 0.5,
         ease: "back.out(1.7)",
@@ -40,7 +40,7 @@ export default function Home() {
         {
           y: 70,
           duration: 1,
-          opacity: 0,
+          autoAlpha: 0,
           ease: "back.out(1.7)",
           stagger: {
             amount: 0.7,
@@ -123,7 +123,7 @@ export default function Home() {
     <div className="h-[1000vh] overflow-x-hidden">
       <div className="h-[100svh] flex flex-col justify-center px-6 relative wrapper">
         <Star className="fill-indigo-300 w-10 top-56 star-1" />
-        <Star className="fill-gray-950 w-6 top-[17rem] right-10 star-2" stroke="#f9fafb" />
+        <Star className="fill-gray-950/0 w-6 top-[17rem] right-10 star-2" stroke="#f9fafb" />
         <Star className="fill-orange-400 w-10 bottom-[17rem] right-7 star-3" />
         <div className="header">
           <div className="flex flex-col self-start w-full mb-2 title-wrapper" ref={titleRef}>

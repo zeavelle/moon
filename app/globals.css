@@ -30,7 +30,12 @@ body {
   font-kerning: none;
 }
 
-
+.title-wrapper .char {
+  visibility: hidden;
+}
+.desc .char {
+  visibility: hidden;
+}
 
 .title-wrapper > .line:nth-child(2) {
   text-align: end !important;
@@ -38,7 +43,7 @@ body {
 
 @media screen and (max-width: 640px) {
   .wrapper {
-    background: url("../public/background-1.webp"), linear-gradient(transparent 80%, #030712);
+    background: url("../public/background.webp"), linear-gradient(transparent 80%, #030712);
     background-blend-mode: darken;
     background-size: cover;
     background-repeat: no-repeat;
