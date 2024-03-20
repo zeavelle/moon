@@ -43,7 +43,7 @@ body {
 
 @media screen and (max-width: 640px) {
   .wrapper {
-    background: url("../public/background.webp"), linear-gradient(transparent 80%, #030712);
+    background: url("../public/background.webp"), linear-gradient(transparent 70%, #030712);
     background-blend-mode: darken;
     background-size: cover;
     background-repeat: no-repeat;

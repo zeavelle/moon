@@ -20,13 +20,19 @@ export default function Home() {
 
     tl.current = gsap
       .timeline()
+      .from(".grateful", {
+        autoAlpha: 0,
+        duration: 0.3,
+      })
+      .to(".grateful", {
+        opacity: 0,
+        duration: 0.3,
+        delay: 2,
+      })
       .to(".intro", {
         autoAlpha: 0,
-        duration: 0.3
-      })
-      .from(".wrapper", {
-        backgroundColor: "#030712",
-        duration: 0.3, 
+        duration: 0.5,
+        delay: 0.3,
       })
       .from(
         titleText.chars,
@@ -38,7 +44,8 @@ export default function Home() {
           stagger: {
             amount: 0.7,
           },
-        }
+        },
+        "<"
       )
       .from(
         descText.chars,
@@ -126,7 +133,11 @@ export default function Home() {
 
   return (
     <div className="h-[1000vh] overflow-x-hidden">
-      <div className="z-[150] inset-0 bg-gray-950 absolute intro"></div>
+      <div className="z-[150] inset-0 bg-gray-950 absolute intro flex justify-center items-center">
+        <p className="text-2xl grateful invisible">
+          We should be <span className="text-orange-300">grateful</span>
+        </p>
+      </div>
       <div className="h-[100svh] flex flex-col justify-center px-6 relative wrapper">
         <Star className="fill-indigo-300 w-10 top-56 star-1 invisible" />
         <Star className="fill-gray-950/0 w-6 top-[17rem] right-10 star-2 invisible" stroke="#f9fafb" />
