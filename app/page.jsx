@@ -10,6 +10,7 @@ import Star from "./components/star";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Home() {
+  const [isAnimationDone, setIsAnimationDone] = useState(false);
   const titleRef = useRef();
   const descRef = useRef();
   const tl = useRef();
@@ -98,6 +99,7 @@ export default function Home() {
           rotate: 180,
           duration: 1,
           onComplete: () => {
+            setIsAnimationDone(true);
             gsap.to(".star-1", {
               rotate: -345,
               scrollTrigger: {
@@ -132,8 +134,8 @@ export default function Home() {
   });
 
   return (
-    <div className="h-[1000vh] overflow-x-hidden">
-      <div className="z-[150] inset-0 bg-gray-950 absolute intro flex justify-center items-center">
+    <div className={`${isAnimationDone ? "h-[1000vh]" : "h-[100svh]"} overflow-x-hidden`}>
+      <div className="z-[150] inset-0 bg-gray-950 fixed intro flex justify-center items-center">
         <p className="text-2xl grateful invisible">
           We should be <span className="text-orange-300">grateful</span>
         </p>
