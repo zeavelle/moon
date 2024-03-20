@@ -10,31 +10,36 @@ import Star from "./components/star";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Home() {
-  const tl = useRef();
   const titleRef = useRef();
   const descRef = useRef();
+  const tl = useRef();
 
   useGSAP(() => {
-    const titleText = new SplitType(titleRef.current);
-    const descText = new SplitType(descRef.current);
+    const titleText = new SplitType(".title-wrapper");
+    const descText = new SplitType(".desc");
 
     tl.current = gsap
       .timeline()
+      .to(".intro", {
+        autoAlpha: 0,
+        duration: 0.3
+      })
       .from(".wrapper", {
         backgroundColor: "#030712",
-        duration: 1,
-        delay: 1,
+        duration: 0.3, 
       })
-      .from(titleText.chars, {
-        y: 70,
-        autoAlpha: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: "back.out(1.7)",
-        stagger: {
-          amount: 0.7,
-        },
-      }, "-=1")
+      .from(
+        titleText.chars,
+        {
+          y: 70,
+          autoAlpha: 0,
+          duration: 1,
+          ease: "back.out(1.7)",
+          stagger: {
+            amount: 0.7,
+          },
+        }
+      )
       .from(
         descText.chars,
         {
@@ -58,7 +63,7 @@ export default function Home() {
         ".star-1",
         {
           x: -50,
-          opacity: 0,
+          autoAlpha: 0,
           rotate: 360,
           duration: 1,
         },
@@ -69,7 +74,7 @@ export default function Home() {
         {
           y: -50,
           x: 50,
-          opacity: 0,
+          autoAlpha: 0,
           scale: 0,
           rotate: -270,
           duration: 1,
@@ -81,7 +86,7 @@ export default function Home() {
         {
           y: -50,
           x: -50,
-          opacity: 0,
+          autoAlpha: 0,
           scale: 0,
           rotate: 180,
           duration: 1,
@@ -117,14 +122,15 @@ export default function Home() {
         },
         "-=1.3"
       );
-  }, null);
+  });
 
   return (
     <div className="h-[1000vh] overflow-x-hidden">
+      <div className="z-[150] inset-0 bg-gray-950 absolute intro"></div>
       <div className="h-[100svh] flex flex-col justify-center px-6 relative wrapper">
-        <Star className="fill-indigo-300 w-10 top-56 star-1" />
-        <Star className="fill-gray-950/0 w-6 top-[17rem] right-10 star-2" stroke="#f9fafb" />
-        <Star className="fill-orange-400 w-10 bottom-[17rem] right-7 star-3" />
+        <Star className="fill-indigo-300 w-10 top-56 star-1 invisible" />
+        <Star className="fill-gray-950/0 w-6 top-[17rem] right-10 star-2 invisible" stroke="#f9fafb" />
+        <Star className="fill-orange-400 w-10 bottom-[17rem] right-7 star-3 invisible" />
         <div className="header">
           <div className="flex flex-col self-start w-full mb-2 title-wrapper" ref={titleRef}>
             <p className="col-span-2 text-6xl marhaban">Marhaban</p>
